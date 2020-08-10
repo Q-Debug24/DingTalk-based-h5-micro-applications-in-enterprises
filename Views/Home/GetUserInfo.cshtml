@@ -1,0 +1,82 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link href="css/index.css" rel="stylesheet"> -->
+    <title class="head_title">设置中心</title>
+    <link href="~/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/About.css" rel=" stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class=" fixed-top bg-white">
+            9999
+            @*<div class=" head_title  text-center">
+                    <span class="font-weight-bold">维修详情</span>
+                </div>*@
+        </nav>
+    </header>
+
+    <script src="~/jquery/jquery.min.js"></script>
+    <script src="~/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="~/bootstrap/bootstrap.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script> -->
+
+    <script src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.10.3/dingtalk.open.js"></script>
+
+    <script type="text/javascript">
+
+        dd.ready(function () {
+            // dd.ready参数为回调函数，在环境准备就绪时触发，jsapi的调用需要保证在该回调函数触发后调用，否则无效。
+
+            dd.runtime.permission.requestAuthCode({
+                corpId: "CorpId:ding2161b7c4713eabce4ac5d6980864d335",
+                onSuccess: function (result) {
+                    //通过corpId，code获取userid
+                    self.getUserInfo(result.code);
+                    alert(result.code)
+
+                    $.ajax({
+                        async: false,
+                        type: 'get',
+                        contentType: 'application/json;charset=UTF-8',
+                        datatype: 'json',
+                        data: code,
+                        url: '/dingtalk/GetUserInfo',
+                        success: function () {
+                            alert("success")
+                        }
+
+                    })
+
+                },
+                onFail: function (err) {
+                    alert(JSON.stringify(err));
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>

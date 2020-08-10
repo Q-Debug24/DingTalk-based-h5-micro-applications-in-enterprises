@@ -1,0 +1,174 @@
+body,
+p {
+    height: 100%;
+    padding: 1px;
+    margin: 0;
+    letter-spacing: 2px;
+    font-family: STHeiti;
+}
+
+.head_title {
+    font-size: 140%;
+}
+
+.nav_box {
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+#nav li hr {
+    width: 75%;
+    margin: 0px 0px 0px 10px;
+    height: 2px;
+    background-color: #005fe0;
+}
+
+.font_s {
+    color: #005fe0;
+}
+
+.font_ns {
+    color: lightgray;
+}
+
+#head_search {
+    padding: 15px 5px 15px 5%;
+    width: 95%;
+}
+
+#input_s {
+    background-image: url('../img/search.png');
+    background-repeat: no-repeat;
+    background-size: 6% 60%;
+    background-position: 20px;
+    padding-left: 15%;
+}
+
+.font_s {
+    color: #005fe0;
+}
+
+#head_search a {
+    font-size: 110%;
+    margin-left: 3%;
+}
+
+.input_text {
+    height: 92px;
+}
+
+#head_img {
+    height: 100px;
+    width: 50px;
+    padding-left: 30px;
+}
+
+.container {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.cont {
+    height: 112px;
+    width: 100%;
+}
+
+.cont_l {
+    height: 100%;
+    padding-top: 5px;
+    width: 35%;
+    padding-right: 0;
+    float: left;
+}
+
+.cont_img {
+    height: 80px;
+    width: 90%;
+    border: 1px solid darkgrey;
+}
+
+.cont_r {
+    height: 100%;
+    width: 65%;
+    font-size: small;
+    padding-left: 0;
+    padding-right: 0;
+    color: grey;
+    float: left;
+}
+
+.footer_cont {
+    background-color: white;
+    padding: 5px 0 5px 0;
+    width: 100%;
+    height: 100%;
+}
+
+.footer_text {
+    padding-top: 5px;
+    font-size: 60%;
+}
+
+#footer_h {
+    color: gray;
+    width: 20%;
+    padding-left: 5%;
+    padding-bottom: 10px;
+    float: left;
+}
+
+    #footer_h img {
+        height: 20px;
+    }
+
+#footer_f {
+    color: #005fe0;
+    width: 25%;
+    padding-left: 11%;
+    padding-bottom: 10px;
+    float: left;
+}
+
+    #footer_f img {
+        height: 20px;
+    }
+
+#footer_m {
+    color: gray;
+    float: left;
+    padding-left: 10%;
+    padding-bottom: 10px;
+    width: 25%;
+}
+
+    #footer_m img {
+        height: 20px;
+    }
+
+#footer_l {
+    padding-left: 12%;
+    padding-bottom: 10px;
+    float: left;
+    color: gray;
+    width: 25%;
+}
+
+    #footer_l img {
+        height: 20px;
+    }
+
+    #footer_l img {
+        height: 20px;
+    }
+
+.table {
+    margin-bottom: 0;
+}
+
+    .table td {
+        padding-right: 0;
+    }
+
+.font_style {
+    font-size: 105% !important;
+}

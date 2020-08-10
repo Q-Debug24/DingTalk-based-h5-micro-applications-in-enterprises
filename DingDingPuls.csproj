@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\dingtalk-jsapi\**" />
+    <Compile Remove="wwwroot\js\dingtalk-jsapi\**" />
+    <Content Remove="wwwroot\dingtalk-jsapi\**" />
+    <Content Remove="wwwroot\js\dingtalk-jsapi\**" />
+    <EmbeddedResource Remove="wwwroot\dingtalk-jsapi\**" />
+    <EmbeddedResource Remove="wwwroot\js\dingtalk-jsapi\**" />
+    <None Remove="wwwroot\dingtalk-jsapi\**" />
+    <None Remove="wwwroot\js\dingtalk-jsapi\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200602022937_dingtalk.cs" />
+    <Compile Remove="Migrations\20200602022937_dingtalk.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Services.Client" Version="16.153.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Datas\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Views\Remade\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\bootstrap\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\bootstrap\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\bootstrap\bootstrap.min.js" />
+    <None Include="wwwroot\bootstrap\bootstrap.min.js.map" />
+    <None Include="wwwroot\img\search.svg" />
+    <None Include="wwwroot\jquery\jquery.min.js" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+</Project>

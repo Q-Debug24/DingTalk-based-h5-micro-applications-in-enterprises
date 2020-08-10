@@ -1,0 +1,142 @@
+﻿@{
+    Layout = null;
+}
+@model List<RepairTable>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link href="css/index.css" rel="stylesheet"> -->
+    <title class="head_title">维修汇总</title>
+    <link href="~/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/index.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+</head>
+
+<body>
+
+    <header>
+
+        <nav class=" fixed-top  bg-light">
+            @*<div class="text-center">
+                    <span class="font-weight-bolder head_title">设备维修</span>
+                </div>*@
+            <div class=" ">
+
+                <ul class="nav justify-content-center" id="nav">
+                    <li class="nav-item">
+                        <a asp-action="Index" asp-controller="Repaired" class="nav-link font_s ">维修汇总</a>
+                        <hr>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="Remade" asp-controller="Repaired" class="nav-link  font_ns">维修状态</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="AddTable" asp-controller="Repaired" class="nav-link  font_ns" h>提交表单</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="head_search" class=" ">
+                <form method="get" asp-action="Index">
+                    <div class="input-group input-group-sm ">
+                        <input type="text" class=" form-control font_style  " name="searchString" placeholder="维修单查询" id="input_s" value="@ViewData["currentFilter"]">
+                        <input type="submit" class="  text-decoration-none font_s " value="搜索" />
+                    </div>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <div class=" container">
+        @foreach (var item in Model)
+        {
+            <a asp-action="Details" asp-controller="Repaired" asp-route-id="@item.Id">
+                <div class=" cont ">
+                    <table class="table table-hover border-0">
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class=" cont_l  ">
+                                        <img src="@item.Assets.ImgUrl" class="cont_img">
+                                    </div>
+                                    <div class=" cont_r font-weight-light  ">
+                                        <p class=" ">设备名称：@item.Assets.AssetsName</p>
+                                        <p>设备型号：@item.Assets.AssetsNumber</p>
+                                        <p>单据编号：@item.CreatNumber</p>
+                                        <p>使用部门：@item.Department.Name </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </a>
+
+        }
+    </div>
+
+    <footer>
+        <nav class=" fixed-bottom text-center bg-white">
+
+            <a asp-action="homepage" asp-controller="home">
+                <div id="footer_h">
+
+                    <img src="../img/home.png">
+
+                    <div class=" footer_text">
+                        主页
+                    </div>
+                </div>
+            </a>
+
+            <a asp-action="Index" asp-controller="Repaired">
+                <div id="footer_f">
+
+                    <img src="../../img/fault-selected.png">
+
+                    <div class=" footer_text">
+                        维修
+                    </div>
+                </div>
+            </a>
+            <a asp-action="sentcheck" asp-controller="check" asp-route-id="2020">
+                <div class="" id="footer_m">
+                    <img src="../../img/repair.png">
+                    <div class="footer_text">
+                        点检
+                    </div>
+                </div>
+            </a>
+            <a asp-action="Index" asp-controller="Set">
+                <div class="  " id="footer_l">
+                    <img src="../../img/setup.png">
+                    <div class=" footer_text">
+                        设置
+                    </div>
+                </div>
+            </a>
+        </nav>
+    </footer>
+
+    <script src="~/jquery/jquery.min.js"></script>
+    <script src="~/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="~/bootstrap/bootstrap.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script> -->
+</body>
+</html>

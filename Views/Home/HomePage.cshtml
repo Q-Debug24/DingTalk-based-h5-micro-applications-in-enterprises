@@ -1,0 +1,255 @@
+﻿@{
+    Layout = null;
+}
+@model HomeViewModel
+<!DOCTYPE html>
+@*<html>*@
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <!-- <link href="css/index.css" rel="stylesheet"> -->
+    <title>南昌印钞有限公司</title>
+    <link href="../bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/home.css" rel="stylesheet">
+    <script src="https://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+</head>
+
+<body>
+
+    <header>
+        <nav class=" fixed-top bg-white">
+            @*<div class=" head_title  text-center">
+                    <span class="font-weight-bold">维修详情</span>
+                </div>*@
+        </nav>
+    </header>
+
+    <div class="container bg-light">
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../../img/head.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../../img/head.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../../img/head.png" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="con_gg float-left text-center">公告</div>
+            <div class="float-left con_xw">南钞三项管理创新成果获江西省管理创新</div>
+            <div class="row con_r">
+                <div class="con_gd">更多</div>
+                <a class="float-right" href="#">
+                    <img src="../../img/down.png" class="con_im">
+                </a>
+            </div>
+
+            <wb:share-button appkey="287708625" id="wbShare" addition="full" type="button" pic="https://a9blmo3lvm.54http.tech/img/head.png"></wb:share-button>
+        </div>
+        <hr />
+
+        <div class="cont_remove bg-light">
+            <div class="row  ">
+                <div class="col-4 con_p">移动巡检</div>
+                <div class="col con_o">
+                    <marquee>
+                        您有3个今日点检任务未完成，请及时处理
+                    </marquee>
+                </div>
+            </div>
+        </div>
+
+        <div id="accordion">
+            <div class="card ca_pa">
+                <div class="card-header bg-white ca_top">
+                    <img src="../../img/finshed.png" class="status_img" />
+                    <span class="font-weight-lighter">今日已完成</span>
+                    <a class="card-link float-right" data-toggle="collapse" href="#collapseOne">
+                        <img src="../../img/down.png" class="header_img">
+                    </a>
+                </div>
+                <div id="collapseOne" class="collapse con_f" data-parent="#accordion">
+
+                    <div class="card-body ">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr class="font-weight-lighter">
+                                    <th>单号</th>
+                                    <th>名称</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @for (int i = 0; i < Model.CreateNumberList.Count; i++)
+                                {
+                                    <tr>
+                                        <td>@Model.CreateNumberList[i]</td>
+                                        <td>@Model.EquNameList[i]</td>
+                                        <td><a asp-action="CheckDetial" asp-controller="check" asp-route-id="@Model.FinshedId[i]">详情</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-white ca_top ">
+                    <img src="~/img/undone.png" class="status_img" />
+                    <span class="font-weight-lighter">今日待完成</span>
+                    <a class="card-link float-right" data-toggle="collapse" href="#collapsetow">
+                        <img src="../../img/down.png" class="header_img">
+                    </a>
+                </div>
+
+                <div id="collapsetow" class="collapse con_f" data-parent="#accordion">
+                    <div class="card-body">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr class="font-weight-lighter">
+                                    <th>单号</th>
+                                    <th>名称</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int j = 0; j < Model.NoCreatNumberList.Count; j++)
+                                {
+
+                                    <tr>
+                                        <td>@Model.NoCreatNumberList[j]</td>
+                                        <td>@Model.NoEquNameList[j]</td>
+                                        <td><a asp-action="SentCheck" asp-controller="Check" asp-route-id="@Model.NoFinshedId[j]">去完成</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="con_two con_f ">
+
+            <div class="con_p  ">维修任务</div>
+            <hr />
+            <table class="table border-left border-right border-bottom bg-white">
+                <thead>
+                    <tr class="font-weight-lighter">
+                        <th>名称</th>
+                        <th>维修人</th>
+                        <th>状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>电磁阀</td>
+                        <td>覃鸿宇</td>
+                        <td><span class="font_oncheck">审核中</span></td>
+                    </tr>
+                    <tr>
+                        <td>电磁阀</td>
+                        <td>覃鸿宇</td>
+                        <td><span class="font_success">已受理</span></td>
+                    </tr>
+                    <tr>
+                        <td>电磁阀</td>
+                        <td>覃鸿宇</td>
+                        <td><span class="font_refuse">已拒绝</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <nav class=" fixed-bottom text-center bg-white">
+
+            <a asp-action="homepage" asp-controller="home">
+                <div id="footer_h">
+
+                    <img src="../img/home_s.png">
+
+                    <div class=" footer_text">
+                        主页
+                    </div>
+                </div>
+            </a>
+
+            <a asp-action="Index" asp-controller="Repaired">
+                <div id="footer_f">
+
+                    <img src="../../img/fault.png">
+
+                    <div class=" footer_text">
+                        维修
+                    </div>
+                </div>
+            </a>
+            <a asp-action="sentcheck" asp-controller="check" asp-route-id="2020">
+                <div class="" id="footer_m">
+                    <img src="../../img/repair.png">
+                    <div class="footer_text">
+                        点检
+                    </div>
+                </div>
+            </a>
+            <a asp-action="index" asp-controller="Set">
+                <div class="  " id="footer_l">
+                    <img src="../../img/setup.png">
+                    <div class=" footer_text">
+                        设置
+                    </div>
+                </div>
+            </a>
+        </nav>
+    </footer>
+
+    <script src="~/jquery/jquery.min.js"></script>
+    <script src="~/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="~/bootstrap/bootstrap.min.js"></script>
+    <script src="https://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#wbShare").click(function () {
+                alert("该Id有效");
+            });
+            $("#btn2").click(function () {
+                alert("HTML: " + $("#test").html());
+            });
+        });
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,123 @@
+﻿@{
+    Layout = null;
+}
+@model RepairTable
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link href="css/index.css" rel="stylesheet"> -->
+    <title class="head_title">维修详情</title>
+    <link href="~/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/Detial.css" rel=" stylesheet">
+</head>
+
+<body>
+
+    <header>
+
+        <nav class=" fixed-top bg-white">
+
+            <div class=" head_title  text-center">
+            </div>
+        </nav>
+    </header>
+
+    <div class="info">
+        <div class="head_search">
+            <form>
+                <div class="input-group input-group-sm ">
+                    <input type="text" class=" form-control font_style bg-light input_s " placeholder="基础信息" readonly>
+                </div>
+            </form>
+        </div>
+        <p>单据编号<span>@Model.CreatNumber</span></p>
+        <p>使用部门<span>@Model.Department.Name</span></p>
+        <p>设备型号<span>@Model.CreatNumber</span></p>
+        <p>资产标签<span>@Model.Assets.AssetsTip</span></p>
+        <p>&nbsp&nbsp 经办人<span>@Model.Applicant</span></p>
+        <p>维修原因<span>@Model.Reason</span></p>
+        <p>申请日期<span>@Model.PlanTime</span></p>
+    </div>
+
+    <div class="opt">
+        <div class="head_search">
+            <form>
+                <div class="input-group input-group-sm ">
+                    <input type="text" class=" form-control font_style bg-light input_s " placeholder="办理意见" readonly>
+                </div>
+            </form>
+        </div>
+
+        <div class="process">
+
+            <div class="left">
+                <p>
+                    @Model.Applicant
+                </p>
+            </div>
+            <div class="medium">
+            </div>
+            <div class="right">
+                <p>
+                    申请人:<span>同意</span>
+                </p>
+            </div>
+            <div class=" clearfix"></div>
+            <div class="pro_img">
+                <div class="float-right small font-weight-light">
+                    <p>@Model.StartTime</p>
+                </div>
+            </div>
+
+            <div class="left">
+                <p>
+                    @Model.Leader
+                </p>
+            </div>
+            <div class="medium">
+            </div>
+            <div class="right">
+                <p>
+                    设备主管:<span>同意</span>
+                </p>
+            </div>
+            <div class=" clearfix"></div>
+            <div class="float-right small font-weight-light">
+                <p>@Model.EndTime</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="show_img">
+            <div class="head_search">
+                <form>
+                    <div class="input-group input-group-sm ">
+                        <input type="text" class=" form-control font_style bg-light input_s " placeholder="设备图片" readonly>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <img src="@Model.Assets.ImgUrl">
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/jquery/jquery.min.js"></script>
+    <script src="~/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="~/bootstrap/bootstrap.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script> -->
+</body>
+</html>

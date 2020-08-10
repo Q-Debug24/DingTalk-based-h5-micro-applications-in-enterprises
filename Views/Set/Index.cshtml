@@ -1,0 +1,106 @@
+﻿@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+@*<html lang="en">*@
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link href="css/index.css" rel="stylesheet"> -->
+    <title class="head_title">设置中心</title>
+    <link href="~/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/About.css" rel=" stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class=" fixed-top bg-white">
+            @*<div class=" head_title  text-center">
+                    <span class="font-weight-bold">维修详情</span>
+                </div>*@
+        </nav>
+    </header>
+
+    <div class=" content">
+        <div class=" cont_body">
+            <div class=" cont_img">
+                <img src="../img/setup-icon1.png" class=" cont_l"><span>版本信息</span>
+                <img src="../img/down.png" class=" cont_r float-right">
+            </div>
+        </div>
+
+        <div class=" cont_body">
+            <div class=" cont_img">
+                <img src="../img/setup-icon2.png" class=" cont_l"><span>意见反馈</span>
+                <img src="../img/down.png" class=" cont_r float-right">
+            </div>
+        </div>
+        <div class=" cont_body">
+            <div class=" cont_img">
+                <img src="../img/setup-icon3.png" class=" cont_l"><span>关于应用</span>
+                <img src="../img/down.png" class=" cont_r float-right">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <nav class=" fixed-bottom text-center bg-white">
+
+            <a asp-action="homepage" asp-controller="home">
+                <div id="footer_h">
+
+                    <img src="../img/home.png">
+
+                    <div class=" footer_text">
+                        主页
+                    </div>
+                </div>
+            </a>
+
+            <a asp-action="Index" asp-controller="Repaired">
+                <div id="footer_f">
+
+                    <img src="../img/fault.png">
+
+                    <div class=" footer_text">
+                        维修
+                    </div>
+                </div>
+            </a>
+            <a asp-action="sentcheck" asp-controller="check" asp-route-id="2020">
+                <div class="" id="footer_m">
+                    <img src="../img/repair.png">
+                    <div class="footer_text">
+                        点检
+                    </div>
+                </div>
+            </a>
+            <a asp-action="index" asp-controller="Set">
+                <div class="  " id="footer_l">
+                    <img src="../img/setup-selected.png">
+                    <div class=" footer_text">
+                        设置
+                    </div>
+                </div>
+            </a>
+        </nav>
+    </footer>
+
+    <script src="~/jquery/jquery.min.js"></script>
+    <script src="~/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="~/bootstrap/bootstrap.min.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script> -->
+</body>
+</html>
